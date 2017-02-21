@@ -8,6 +8,14 @@ using namespace std;
 
 
 int main(int argc, char* argv[]) {
+    if(argc < 3) {
+        std::cerr << "Not enough files provided" << "\n";
+        return 0;
+    }
+    if(argc > 3){
+        std::cout << "Too many files provided" << "\n";
+        std::cout << "Comparing first and second" << "\n";
+    }
     ifstream a (argv[1], ifstream::in), b (argv[2], ifstream::in);
     stringstream prvi, drugi;
     string f;
@@ -52,7 +60,7 @@ int main(int argc, char* argv[]) {
 
     double rjesenje = ((max((double)counter1, (double)counter2) / (double)total)*100.);
 
-    cout << rjesenje << "%" << endl;
+    cout << "Similarity: " << rjesenje << "%" << endl;
 
     return 0;
 }
